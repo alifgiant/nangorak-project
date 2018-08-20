@@ -7,6 +7,8 @@
   "license": "Apache v2.0",
   "private": true,
   "scripts": {    
-    "deploy": "firebase deploy --only functions && firebase deploy --only hosting"
+    "deploy": "firebase deploy --only functions && firebase deploy --only hosting",
+    "deploy-fe": "firebase deploy --only hosting",
+    "deploy-be": "firebase deploy --only functions"
   }
 }
