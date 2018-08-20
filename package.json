@@ -1,0 +1,12 @@
+{
+  "name": "nangorak-project",
+  "version": "1.0.0",
+  "description": "cloud functions and hosting for nangorak camp website",  
+  "repository": "https://github.com/alifgiant/nangorak-project.git",
+  "author": "Alif & Rizky ",
+  "license": "Apache v2.0",
+  "private": true,
+  "scripts": {    
+    "deploy": "firebase deploy --only functions && firebase deploy --only hosting"
+  }
+}

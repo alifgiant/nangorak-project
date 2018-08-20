@@ -1,0 +1,25 @@
+{
+  "functions": {
+    "source": "backend",
+    "predeploy": [
+      "yarn --cwd functions run lint",
+      "yarn --cwd functions run build"
+    ],
+    "ignore": [
+      "tsconfig.json",
+      "package-lock.json",
+      "tslint.json",
+      "**/.*",
+      "**/src/**",
+      "**/node_modules/**"
+    ]
+  },
+  "hosting": {
+    "public": "frontend",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
