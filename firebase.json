@@ -2,8 +2,8 @@
   "functions": {
     "source": "backend",
     "predeploy": [
-      "yarn --cwd functions run lint",
-      "yarn --cwd functions run build"
+      "yarn --cwd backend run lint",
+      "yarn --cwd backend run build"
     ],
     "ignore": [
       "tsconfig.json",
