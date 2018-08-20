@@ -1,0 +1,16 @@
+{
+  "name": "hosting",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "repository": "https://github.com/alifgiant/nangorak-project.git",
+  "author": "Rizky",
+  "license": "Apache v2.0",
+  "private": true,
+  "scripts": {
+    "deploy": "firebase deploy --only hosting"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
