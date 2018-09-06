@@ -1,9 +1,24 @@
 FORMAT: 1A
-HOST: https://nangorakcamp.com/api/v1/
+HOST: https://nangarok-camp-run1.firebaseapp.com/api/v1/
 
 # Nangorak Project API Docs
 
 This document documented all API that will be used to build nangorak websites.
+
+## Images [/images]
+### Get a sized image [GET /images]
++ Request (application/json)
+    + Attributes
+        + fileName: `alif.png` (string , required)
+        
++ Response 200 (application/json)
+    + Attributes
+        + fileName: `alif.png` (string)
+        + sized (array)
+            + full: `https://googleimage.com/alif.png` (string)
+            + 0: `https://googleimage.com/alif_0.png` (string)
+            + 1: `https://googleimage.com/alif_1.png` (string)
+            + 2: `https://googleimage.com/alif_2.png` (string)
 
 ## Attractions [/attractions]
 ### Get all attractions [GET]
@@ -35,11 +50,11 @@ This document documented all API that will be used to build nangorak websites.
     + Attributes (array)
         + (object)
             + locationId: `nangorak` (string)
-            + backgroundImage: `https://imageapi.com/asd.png` (string)
+            + backgroundImage: `asd.png` (string)
             + facilites (array[Facility])
         + (object)
             + locationId: `nangorak` (string)
-            + backgroundImage: `https://imageapi.com/asd.png` (string)
+            + backgroundImage: `asd.png` (string)
             + facilites (array[Facility])
 
 ### Get all facilities of location [GET /facilities{?locationId}]
@@ -48,7 +63,7 @@ This document documented all API that will be used to build nangorak websites.
 + Response 200 (application/json)
     + Attributes
         + locationId: `nangorak` (string)
-        + backgroundImage: `https://imageapi.com/asd.png` (string)
+        + backgroundImage: `asd.png` (string)
         + facilities (array)
             + (Facility)
             + (Facility)
@@ -110,28 +125,31 @@ This document documented all API that will be used to build nangorak websites.
 
 ## Location (object)
 - name: `Nangorak camping site` (string, required)
-- logo: `https://imageapi.com/asd.png` (string)
+- logo: `asd.png` (string)
+- heroImages (array[string]) - up to 4 image
+    - asd.png
+    - asd.png
 - notes: `Temukan keindahan alam yang tidak kamu temukan di belahan bumi manapun` (string)
-- locationId: `nangorak` (string, required)
+- locationId: `1536250994397` (string, required)
 - latitude: `-6.932567` (string, required)
 - longitude: `107.870124` (string, required)
 - address (Address)
 - contact (Contact)
 
 ## Feedback (object)
-- photoUrl: `https://imageapi.com/asd.png` (string)
+- photoUrl: `asd.png` (string)
 - personName: `Alif Akbar` (string, required)
 - comment: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.` (string, required)
 - loveMeter: 5 (number, required)
 - city: `Jakarta` (string)
 
 ## Facility (object)
-- icon: `https://imageapi.com/asd.png` (string)
+- icon: `asd.png` (string)
 - description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.` (string, required)
 - shortDescription: `Lorem ipsum dolor sit amet` (string, required)
 
 ## Attraction (object)
-- icon: `https://imageapi.com/asd.png` (string)
-- backgroundImage: `https://imageapi.com/asd.png` (string)
+- icon: `asd.png` (string)
+- backgroundImage: `asd.png` (string)
 - description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.` (string, required)
 - shortDescription: `Camping Ground` (string, required)
