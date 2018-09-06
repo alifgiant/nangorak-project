@@ -1,80 +1,127 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: https://nangorakcamp.com/api/v1/
 
-# nangorakproject
+# Nangorak Project API Docs
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+This document documented all API that will be used to build nangorak websites.
 
-## Questions Collection [/questions]
-
-### List All Questions [GET]
-
+## Attractions [/attractions]
+### Get all attractions [GET]
 + Response 200 (application/json)
+    + Attributes (array)
+        + (object)
+            + locationId: `nangorak` (string)
+            + notes: `Temukan keindahan alam yang tidak kamu temukan di belahan bumi manapun. Pemandangan yang seperti layaknya sepenggal surga di muka bumi.` (string)
+            + attractions (array[Attraction])
+        + (object)
+            + locationId: `situ bagus` (string)
+            + notes: `Temukan keindahan alam yang tidak kamu temukan di belahan bumi manapun. Pemandangan yang seperti layaknya sepenggal surga di muka bumi.` (string)
+            + attractions (array[Attraction])
 
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
+### Get all attractions of location [GET /attractions{?locationId}]
++ Parameters
+    + locationId: `nangorak` (string, required)
++ Response 200 (application/json)
+    + Attributes
+        + locationId: `nangorak` (string)
+        + notes: `Temukan keindahan alam yang tidak kamu temukan di belahan bumi manapun. Pemandangan yang seperti layaknya sepenggal surga di muka bumi.` (string)
+        + attractions (array)
+            + (Attraction)
+            + (Attraction)
 
-### Create a New Question [POST]
+## Facilities [/facilities]
+### Get all facilites [GET]
++ Response 200 (application/json)
+    + Attributes (array)
+        + (object)
+            + locationId: `nangorak` (string)
+            + backgroundImage: `https://imageapi.com/asd.png` (string)
+            + facilites (array[Facility])
+        + (object)
+            + locationId: `nangorak` (string)
+            + backgroundImage: `https://imageapi.com/asd.png` (string)
+            + facilites (array[Facility])
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+### Get all facilities of location [GET /facilities{?locationId}]
++ Parameters
+    + locationId: `nangorak` (string, required)
++ Response 200 (application/json)
+    + Attributes
+        + locationId: `nangorak` (string)
+        + backgroundImage: `https://imageapi.com/asd.png` (string)
+        + facilities (array)
+            + (Facility)
+            + (Facility)
 
-+ Request (application/json)
+## Location [/locations]
+### Get all locations [GET]
++ Response 200 (application/json)
+    + Attributes (array)
+        + (Location)
+        + (Location)
+        + (Location)
 
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
+### Get specific location [GET /locations{?locationId}]
++ Response 200 (application/json)
+    + Attributes (array)
+        + (Location)
+        + (Location)
+        + (Location)
 
-+ Response 201 (application/json)
+## Feedback [/feedbacks]
+### Get all feedbacks [GET]
++ Response 200 (application/json)
+    + Attributes (array)
+        + (Feedback)
+        + (Feedback)
+        + (Feedback)
 
-    + Headers
+### Get all feedbacks of location [GET /feedbacks/{locationId}]
++ Parameters
+    + locationId: `nangorak` (string, required)
++ Response 200 (application/json)
+    + Attributes (array)
+        + (Feedback)
+        + (Feedback)
 
-            Location: /questions/2
+### Get a feedbacks [GET /feedbacks/{locationId}/{id}]
++ Parameters
+    + locationId: `nangorak` (string, required)
+    + id: `1` (number, required)
++ Response 200 (application/json)
+    + Attributes (Feedback)
 
-    + Body
 
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
+# Data Structures
+
+## Address (object)
+- street: `Jl. Gunung Puyuh – Nangorak Blok Nangorak, Desa Margamekar` (string, required)
+- district: `Kec. Sumedang Selatan` (string, required)
+- city: `Kab. Sumedang` (string, required)
+- province: `Jawa Barat` (string, required)
+
+## Location (object)
+- name: `Nangorak camping site` (string, required)
+- notes: `Temukan keindahan alam yang tidak kamu temukan di belahan bumi manapun` (string)
+- address (Address)
+- locationId: `nangorak` (string, required)
+- latitude: `-6.932567` (string, required)
+- longitude: `107.870124` (string, required)
+
+## Feedback (object)
+- photoUrl: `https://imageapi.com/asd.png` (string)
+- personName: `Alif Akbar` (string, required)
+- comment: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.` (string, required)
+- loveMeter: 5 (number, required)
+- city: `Jakarta` (string)
+
+## Facility (object)
+- icon: `https://imageapi.com/asd.png` (string)
+- description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.` (string, required)
+- shortDescription: `Lorem ipsum dolor sit amet` (string, required)
+
+## Attraction (object)
+- icon: `https://imageapi.com/asd.png` (string)
+- backgroundImage: `https://imageapi.com/asd.png` (string)
+- description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.` (string, required)
+- shortDescription: `Camping Ground` (string, required)
