@@ -1,7 +1,6 @@
 {
   "name": "functions",
   "version": "1.0.0",
-  "description": "cloud functions for alif akbar personal website",
   "main": "lib/index.js",
   "repository": "https://github.com/alifgiant/nangorak-project.git",
   "author": "Alif Akbar",
@@ -16,25 +15,20 @@
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
   },
-  "dependencies": {  
+  "dependencies": {
     "body-parser": "^1.18.3",
-    "compression": "^1.7.2",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "firebase-admin": "^5.12.1",
     "firebase-functions": "^1.1.0",
-    "flamelink": "^0.17.1",
-    "path": "^0.12.7",
-    "pug": "^2.0.3"
+    "flamelink": "^0.17.1"
   },
   "devDependencies": {
-    "@types/compression": "^0.0.36",
     "@types/cookie-parser": "^1.4.1",
     "@types/cors": "^2.8.4",
     "@types/express": "^4.16.0",
-    "@types/pug": "^2.0.4",
     "tslint": "^5.8.0",
     "typescript": "^2.9.2"
   }
