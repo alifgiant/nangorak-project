@@ -40,9 +40,27 @@ router.get("/facilities", (request, response, next) => {
     response.send("facilities");
 });
 
-/* GET /locations */
-router.get("/locations", (request, response, next) => {
-    response.send("locations");
+/* GET /venues */
+router.get("/venues", (request, response, next) => {
+    const venueId = request.query.venuesId;
+    console.log(venueId);
+    if (venueId == "" || venueId == null) {
+        app.content.get('venue')
+            .then(venues => response.send(venues))
+            .catch(error => {               
+                console.error('Something went wrong while retrieving all the venue. Details:', error);
+                response.status(400);
+                response.send('Something went wrong while retrieving all the venue.');
+            });
+    } else {
+        app.content.get('venue', venueId)
+            .then(venue => response.send(venue))
+            .catch(error => {               
+                console.error('Something went wrong while retrieving the venue. Details:', error);
+                response.status(404);
+                response.send('venue with that id not found');
+            });
+    }
 });
 
 /* GET /feedbacks */
