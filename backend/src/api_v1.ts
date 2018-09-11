@@ -12,6 +12,12 @@ const app = flamelink({ firebaseApp, isAdminApp: true });
 import * as express from "express";
 const router = express.Router();
 
+/*
+ * req.params.id -> route param, /path/:version
+ * req.query.id -> query string, /path?id=0
+ * req.body.id -> post bosy, { "id" : 0}
+ */
+
 /* GET /images. */
 router.get("/images", (request, response, next) => {
     const fileName = request.body.fileName;
