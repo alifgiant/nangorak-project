@@ -25,20 +25,20 @@ This document documented all API that will be used to build nangorak websites.
 + Response 200 (application/json)
     + Attributes (array)
         + (object)
-            + venueId: `nangorak` (string)
+            + venueId: `1536250994397` (string) - nangorak
             + notes: `Temukan keindahan alam yang tidak kamu temukan di belahan bumi manapun. Pemandangan yang seperti layaknya sepenggal surga di muka bumi.` (string)
             + attractions (array[Attraction])
         + (object)
-            + venueId: `situ bagus` (string)
+            + venueId: `1536250994398` (string, required) - situ bagus
             + notes: `Temukan keindahan alam yang tidak kamu temukan di belahan bumi manapun. Pemandangan yang seperti layaknya sepenggal surga di muka bumi.` (string)
             + attractions (array[Attraction])
 
 ### Get all attractions of venue [GET /attractions{?venueId}]
 + Parameters
-    + venueId: `nangorak` (string, required)
+    + venueId: `1536250994397` (string, required) - nangorak
 + Response 200 (application/json)
     + Attributes
-        + venueId: `nangorak` (string)
+        + venueId: `1536250994397` (string) - nangorak
         + notes: `Temukan keindahan alam yang tidak kamu temukan di belahan bumi manapun. Pemandangan yang seperti layaknya sepenggal surga di muka bumi.` (string)
         + attractions (array)
             + (Attraction)
@@ -49,20 +49,20 @@ This document documented all API that will be used to build nangorak websites.
 + Response 200 (application/json)
     + Attributes (array)
         + (object)
-            + venueId: `nangorak` (string)
+            + venueId: `1536250994397` (string) - nangorak
             + backgroundImage: `asd.png` (string)
             + facilites (array[Facility])
         + (object)
-            + venueId: `nangorak` (string)
+            + venueId: `1536250994397` (string) - nangorak
             + backgroundImage: `asd.png` (string)
             + facilites (array[Facility])
 
 ### Get all facilities of venue [GET /facilities{?venueId}]
 + Parameters
-    + venueId: `nangorak` (string, required)
+    + venueId: `1536250994397` (string, required) - nangorak
 + Response 200 (application/json)
     + Attributes
-        + venueId: `nangorak` (string)
+        + venueId: `1536250994397` (string) - nangorak
         + backgroundImage: `asd.png` (string)
         + facilities (array)
             + (Facility)
@@ -78,7 +78,7 @@ This document documented all API that will be used to build nangorak websites.
 
 ### Get specific venue [GET /venues{?venueId}]
 + Parameters
-    + venueId: `nangorak` (string)
+    + venueId: `1536250994397` (string, required) - nangorak
 + Response 200 (application/json)
     + Attributes (Venue)
 
@@ -92,7 +92,7 @@ This document documented all API that will be used to build nangorak websites.
 
 ### Get all feedbacks of venue [GET /feedbacks/{venueId}]
 + Parameters
-    + venueId: `nangorak` (string, required)
+    + venueId: `1536250994397` (string, required) - nangorak
 + Response 200 (application/json)
     + Attributes (array)
         + (Feedback)
@@ -100,7 +100,7 @@ This document documented all API that will be used to build nangorak websites.
 
 ### Get a feedbacks [GET /feedbacks/{venueId}/{id}/]
 + Parameters
-    + venueId: `nangorak` (string, required)
+    + venueId: `1536250994397` (string, required) - nangorak
     + id: `1` (number, required)
 + Response 200 (application/json)
     + Attributes (Feedback)
