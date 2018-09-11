@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: https://nangarok-camp-run1.firebaseapp.com/api/v1/
+HOST: https://us-central1-nangarok-camp-run1.cloudfunctions.net/api/v1/
 
 # Nangorak Project API Docs
 
@@ -25,20 +25,20 @@ This document documented all API that will be used to build nangorak websites.
 + Response 200 (application/json)
     + Attributes (array)
         + (object)
-            + locationId: `nangorak` (string)
+            + venueId: `nangorak` (string)
             + notes: `Temukan keindahan alam yang tidak kamu temukan di belahan bumi manapun. Pemandangan yang seperti layaknya sepenggal surga di muka bumi.` (string)
             + attractions (array[Attraction])
         + (object)
-            + locationId: `situ bagus` (string)
+            + venueId: `situ bagus` (string)
             + notes: `Temukan keindahan alam yang tidak kamu temukan di belahan bumi manapun. Pemandangan yang seperti layaknya sepenggal surga di muka bumi.` (string)
             + attractions (array[Attraction])
 
-### Get all attractions of location [GET /attractions{?locationId}]
+### Get all attractions of venue [GET /attractions{?venueId}]
 + Parameters
-    + locationId: `nangorak` (string, required)
+    + venueId: `nangorak` (string, required)
 + Response 200 (application/json)
     + Attributes
-        + locationId: `nangorak` (string)
+        + venueId: `nangorak` (string)
         + notes: `Temukan keindahan alam yang tidak kamu temukan di belahan bumi manapun. Pemandangan yang seperti layaknya sepenggal surga di muka bumi.` (string)
         + attractions (array)
             + (Attraction)
@@ -49,39 +49,39 @@ This document documented all API that will be used to build nangorak websites.
 + Response 200 (application/json)
     + Attributes (array)
         + (object)
-            + locationId: `nangorak` (string)
+            + venueId: `nangorak` (string)
             + backgroundImage: `asd.png` (string)
             + facilites (array[Facility])
         + (object)
-            + locationId: `nangorak` (string)
+            + venueId: `nangorak` (string)
             + backgroundImage: `asd.png` (string)
             + facilites (array[Facility])
 
-### Get all facilities of location [GET /facilities{?locationId}]
+### Get all facilities of venue [GET /facilities{?venueId}]
 + Parameters
-    + locationId: `nangorak` (string, required)
+    + venueId: `nangorak` (string, required)
 + Response 200 (application/json)
     + Attributes
-        + locationId: `nangorak` (string)
+        + venueId: `nangorak` (string)
         + backgroundImage: `asd.png` (string)
         + facilities (array)
             + (Facility)
             + (Facility)
 
-## Location [/locations]
-### Get all locations [GET]
+## Venue [/venues]
+### Get all venues [GET]
 + Response 200 (application/json)
     + Attributes (array)
-        + (Location)
-        + (Location)
-        + (Location)
+        + (Venue)
+        + (Venue)
+        + (Venue)
 
-### Get specific location [GET /locations{?locationId}]
+### Get specific venue [GET /venues{?venueId}]
 + Response 200 (application/json)
     + Attributes (array)
-        + (Location)
-        + (Location)
-        + (Location)
+        + (Venue)
+        + (Venue)
+        + (Venue)
 
 ## Feedback [/feedbacks]
 ### Get all feedbacks [GET]
@@ -91,17 +91,17 @@ This document documented all API that will be used to build nangorak websites.
         + (Feedback)
         + (Feedback)
 
-### Get all feedbacks of location [GET /feedbacks/{locationId}]
+### Get all feedbacks of venue [GET /feedbacks/{venueId}]
 + Parameters
-    + locationId: `nangorak` (string, required)
+    + venueId: `nangorak` (string, required)
 + Response 200 (application/json)
     + Attributes (array)
         + (Feedback)
         + (Feedback)
 
-### Get a feedbacks [GET /feedbacks/{locationId}/{id}]
+### Get a feedbacks [GET /feedbacks/{venueId}/{id}/]
 + Parameters
-    + locationId: `nangorak` (string, required)
+    + venueId: `nangorak` (string, required)
     + id: `1` (number, required)
 + Response 200 (application/json)
     + Attributes (Feedback)
@@ -117,20 +117,20 @@ This document documented all API that will be used to build nangorak websites.
 
 ## Contact (object)
 - email: `nangorakcamp@gmail.com` (string, required)
-- phone: `+62 821 1915 8765` (string, required)
+- phone: `+62 821 1915 8765` (string, required)n
 - facebook: `fb.com/m.alif.akbar` (string)
 - instagram: `instagram.com/muh.alifgiant` (string)
 - twitter: `twitter.com/alifgiant` (string)
 - googlePlus: `plus.google.com/alifgiant` (string)
 
-## Location (object)
+## Venue (object)
 - name: `Nangorak camping site` (string, required)
 - logo: `asd.png` (string)
 - heroImages (array[string]) - up to 4 image
     - asd.png
     - asd.png
 - notes: `Temukan keindahan alam yang tidak kamu temukan di belahan bumi manapun` (string)
-- locationId: `1536250994397` (string, required)
+- venueId: `1536250994397` (string, required)
 - latitude: `-6.932567` (string, required)
 - longitude: `107.870124` (string, required)
 - address (Address)
