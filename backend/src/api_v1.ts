@@ -14,7 +14,14 @@ const router = express.Router();
 
 /* GET /images. */
 router.get("/images", (request, response, next) => {
-    response.send("images");
+    const fileName = request.body.fileName;
+    console.log(fileName);
+    if (fileName == "alif.png") {
+        response.send("images found");
+    } else {
+        response.status(404);
+        response.send("images not found");
+    }
 });
 
 /* GET /attractions */
