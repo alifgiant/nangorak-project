@@ -124,14 +124,17 @@ This document documented all API that will be used to build nangorak websites.
 
 ## Venue (object)
 - name: `Nangorak camping site` (string, required)
-- logo: `asd.png` (string)
+- logo (array[string]) - only 1 image
+    - asd.png
+    - asd.png
 - heroImages (array[string]) - up to 4 image
     - asd.png
     - asd.png
-- notes: `Temukan keindahan alam yang tidak kamu temukan di belahan bumi manapun` (string)
+- note: `Temukan keindahan alam yang tidak kamu temukan di belahan bumi manapun` (string)
 - venueId: `1536250994397` (string, required)
-- latitude: `-6.932567` (string, required)
-- longitude: `107.870124` (string, required)
+- coordinate (object)
+    - latitude: `-6.932567` (string, required)
+    - longitude: `107.870124` (string, required)
 - address (Address)
 - contact (Contact)
 
