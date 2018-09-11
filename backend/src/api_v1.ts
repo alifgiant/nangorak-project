@@ -42,23 +42,35 @@ router.get("/facilities", (request, response, next) => {
 
 /* GET /venues */
 router.get("/venues", (request, response, next) => {
-    const venueId = request.query.venuesId;
+    const venueId = request.query.venueId;
     console.log(venueId);
-    if (venueId == "" || venueId == null) {
-        app.content.get('venue')
-            .then(venues => response.send(venues))
-            .catch(error => {               
-                console.error('Something went wrong while retrieving all the venue. Details:', error);
-                response.status(400);
-                response.send('Something went wrong while retrieving all the venue.');
-            });
-    } else {
+    if (venueId) {
+        // single venue
         app.content.get('venue', venueId)
             .then(venue => response.send(venue))
             .catch(error => {               
                 console.error('Something went wrong while retrieving the venue. Details:', error);
                 response.status(404);
                 response.send('venue with that id not found');
+            });
+    } else {
+        // all venue
+        app.content.get('venue')
+            .then(venues => { 
+                var processedVenues = [];
+                for (var id in venues) {
+                    var venueData = venues[id];
+                    venueData.venueId = venueData.id;
+                    delete venueData.__meta__;
+                    delete venueData.id;
+                    processedVenues.push(venueData);
+                }
+                response.send(processedVenues);
+            })
+            .catch(error => {               
+                console.error('Something went wrong while retrieving all the venue. Details:', error);
+                response.status(400);
+                response.send('Something went wrong while retrieving all the venue.');
             });
     }
 });
