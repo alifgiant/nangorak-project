@@ -42,17 +42,18 @@ router.get("/facilities", (request, response, next) => {
 
 /* GET /venues */
 router.get("/venues", (request, response, next) => {
+    function setupData(venue) {
+        var venueData = venue;
+        venueData.venueId = venueData.id;
+        delete venueData.__meta__;
+        delete venueData.id;
+        return venueData;
+    }
     const venueId = request.query.venueId;
     if (venueId) {
         // single venue
         app.content.get('venue', venueId)
-            .then(venue => {
-                var venueData = venue;
-                venueData.venueId = venueData.id;
-                delete venueData.__meta__;
-                delete venueData.id;
-                response.send(venueData);
-            })
+            .then(venue => response.send(setupData(venue)))
             .catch(error => {               
                 console.error('Something went wrong while retrieving the venue. Details:', error);
                 response.status(404);
@@ -63,11 +64,8 @@ router.get("/venues", (request, response, next) => {
         app.content.get('venue')
             .then(venues => { 
                 var processedVenues = [];
-                for (var id in venues) {
-                    var venueData = venues[id];
-                    venueData.venueId = venueData.id;
-                    delete venueData.__meta__;
-                    delete venueData.id;
+                for (var id in venues) {                
+                    var venueData = setupData(venues[id]);
                     processedVenues.push(venueData);
                 }
                 response.send(processedVenues);
