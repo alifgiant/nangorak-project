@@ -32,7 +32,39 @@ router.get("/images", (request, response, next) => {
 
 /* GET /attractions */
 router.get("/attractions", (request, response, next) => {
-    response.send("attractions");
+    function setupData(attraction) {
+        var attractionData = attraction;
+        delete attractionData.__meta__;
+        return attractionData;
+    }
+    const venueId = request.query.venueId;
+    if (venueId) {
+        // single venue attractions
+        app.content
+            .getByField('attraction', 'venueId', venueId)            
+            .then(attraction => response.send(setupData(attraction)))
+            .catch(error => {               
+                console.error('Something went wrong while retrieving the attraction. Details:', error);
+                response.status(404);
+                response.send('venue attraction with that id not found');
+            });
+    } else {
+        // all attractions
+        app.content.get('attraction')
+            .then(attractions => { 
+                var processedAttractions = [];
+                for (var id in attractions) {
+                    const attractionData = setupData(attractions[id]);
+                    processedAttractions.push(attractionData);
+                }
+                response.send(processedAttractions);
+            })
+            .catch(error => {               
+                console.error('Something went wrong while retrieving all the attractions. Details:', error);
+                response.status(400);
+                response.send('Something went wrong while retrieving all the attractions.');
+            });
+    }
 });
 
 /* GET /facilities */
@@ -65,7 +97,7 @@ router.get("/venues", (request, response, next) => {
             .then(venues => { 
                 var processedVenues = [];
                 for (var id in venues) {                
-                    var venueData = setupData(venues[id]);
+                    const venueData = setupData(venues[id]);
                     processedVenues.push(venueData);
                 }
                 response.send(processedVenues);
