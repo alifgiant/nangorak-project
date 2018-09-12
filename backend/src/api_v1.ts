@@ -37,12 +37,22 @@ router.get("/attractions", (request, response, next) => {
         delete attractionData.__meta__;
         return attractionData;
     }
-    const venueId = request.query.venueId;
+    const venueId = request.query.venueId;    
     if (venueId) {
         // single venue attractions
         app.content
-            .getByField('attraction', 'venueId', venueId)            
-            .then(attraction => response.send(setupData(attraction)))
+            .get('attraction')
+            .then(attractions => { 
+                var processedAttractions;
+                for (var id in attractions) {
+                    console.log("id:"+attractions[id]);
+                    if (attractions[id].venueId == venueId) {
+                        processedAttractions = setupData(attractions[id]);
+                        break;
+                    }
+                }
+                response.send(processedAttractions);
+            })
             .catch(error => {               
                 console.error('Something went wrong while retrieving the attraction. Details:', error);
                 response.status(404);
