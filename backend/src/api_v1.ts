@@ -45,12 +45,12 @@ router.get("/attractions", (request, response, next) => {
             .then(attractions => { 
                 var processedAttractions;
                 for (var id in attractions) {
-                    console.log("id:"+attractions[id]);
                     if (attractions[id].venueId == venueId) {
                         processedAttractions = setupData(attractions[id]);
                         break;
                     }
                 }
+                if (!processedAttractions) response.status(204);
                 response.send(processedAttractions);
             })
             .catch(error => {               
