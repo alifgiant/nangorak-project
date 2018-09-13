@@ -22,7 +22,7 @@ const router = express.Router();
 router.get("/images", (request, response, next) => {
     const fileName = request.body.fileName;
     console.log(fileName);
-    if (fileName == "alif.png") {
+    if (fileName === "alif.png") {
         response.send("images found");
     } else {
         response.status(404);
@@ -33,9 +33,8 @@ router.get("/images", (request, response, next) => {
 /* GET /attractions */
 router.get("/attractions", (request, response, next) => {
     function setupData(attraction) {
-        var attractionData = attraction;
-        delete attractionData.__meta__;
-        return attractionData;
+        delete attraction.__meta__;
+        return attraction;
     }
     const venueId = request.query.venueId;    
     if (venueId) {
@@ -43,9 +42,9 @@ router.get("/attractions", (request, response, next) => {
         app.content
             .get('attraction')
             .then(attractions => { 
-                var processedAttractions;
-                for (var id in attractions) {
-                    if (attractions[id].venueId == venueId) {
+                let processedAttractions;
+                for (const id in attractions) {
+                    if (attractions[id].venueId === venueId) {
                         processedAttractions = setupData(attractions[id]);
                         break;
                     }
@@ -62,8 +61,8 @@ router.get("/attractions", (request, response, next) => {
         // all attractions
         app.content.get('attraction')
             .then(attractions => { 
-                var processedAttractions = [];
-                for (var id in attractions) {
+                let processedAttractions = [];
+                for (const id in attractions) {
                     const attractionData = setupData(attractions[id]);
                     processedAttractions.push(attractionData);
                 }
@@ -79,10 +78,9 @@ router.get("/attractions", (request, response, next) => {
 
 /* GET /facilities */
 router.get("/facilities", (request, response, next) => {
-    function setupData(attraction) {
-        var attractionData = attraction;
-        delete attractionData.__meta__;
-        return attractionData;
+    function setupData(facility) {
+        delete facility.__meta__;
+        return facility;
     }
     const venueId = request.query.venueId;    
     if (venueId) {
@@ -90,9 +88,9 @@ router.get("/facilities", (request, response, next) => {
         app.content
             .get('facilities')
             .then(facilities => { 
-                var processedFacilities;
-                for (var id in facilities) {
-                    if (facilities[id].venueId == venueId) {
+                let processedFacilities;
+                for (const id in facilities) {
+                    if (facilities[id].venueId === venueId) {
                         processedFacilities = setupData(facilities[id]);
                         break;
                     }
@@ -109,8 +107,8 @@ router.get("/facilities", (request, response, next) => {
         // all facilities
         app.content.get('facilities')
             .then(facilities => { 
-                var processedFacilities = [];
-                for (var id in facilities) {
+                let processedFacilities = [];
+                for (const id in facilities) {
                     const facilityData = setupData(facilities[id]);
                     processedFacilities.push(facilityData);
                 }
@@ -127,11 +125,10 @@ router.get("/facilities", (request, response, next) => {
 /* GET /venues */
 router.get("/venues", (request, response, next) => {
     function setupData(venue) {
-        var venueData = venue;
-        venueData.venueId = venueData.id;
-        delete venueData.__meta__;
-        delete venueData.id;
-        return venueData;
+        venue.venueId = venue.id;
+        delete venue.__meta__;
+        delete venue.id;
+        return venue;
     }
     const venueId = request.query.venueId;
     if (venueId) {
@@ -147,8 +144,8 @@ router.get("/venues", (request, response, next) => {
         // all venue
         app.content.get('venue')
             .then(venues => { 
-                var processedVenues = [];
-                for (var id in venues) {                
+                let processedVenues = [];
+                for (const id in venues) {                
                     const venueData = setupData(venues[id]);
                     processedVenues.push(venueData);
                 }
@@ -165,15 +162,14 @@ router.get("/venues", (request, response, next) => {
 /* GET /feedbacks */
 router.get("/feedbacks", (request, response, next) => {
     function setupData(feedback) {
-        var feedbackData = feedback;
-        delete feedbackData.__meta__;
-        return feedbackData;
+        delete feedback.__meta__;
+        return feedback;
     }
     const venueId = request.query.venueId;
-    const id = request.query.id;
-    if (id) {
+    const feedbackId = request.query.id;
+    if (feedbackId) {
         // single feedbacks
-        app.content.get('feedback', id)
+        app.content.get('feedback', feedbackId)
             .then(feedback => response.send(setupData(feedback)))
             .catch(error => {               
                 console.error('Something went wrong while retrieving the feedback. Details:', error);
@@ -185,9 +181,9 @@ router.get("/feedbacks", (request, response, next) => {
         app.content
             .get('feedback')
             .then(feedbacks => { 
-                var processedFeedbacks;
-                for (var id in feedbacks) {
-                    if (feedbacks[id].venueId == venueId) {
+                let processedFeedbacks;
+                for (const id in feedbacks) {
+                    if (feedbacks[id].venueId === venueId) {
                         processedFeedbacks = setupData(feedbacks[id]);
                         break;
                     }
@@ -204,8 +200,8 @@ router.get("/feedbacks", (request, response, next) => {
         // all feedbacks
         app.content.get('feedback')
             .then(feedbacks => { 
-                var processedFeedbacks = [];
-                for (var id in feedbacks) {
+                let processedFeedbacks = [];
+                for (const id in feedbacks) {
                     const feedbackData = setupData(feedbacks[id]);
                     processedFeedbacks.push(feedbackData);
                 }
