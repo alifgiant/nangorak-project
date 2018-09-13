@@ -164,7 +164,59 @@ router.get("/venues", (request, response, next) => {
 
 /* GET /feedbacks */
 router.get("/feedbacks", (request, response, next) => {
-    response.send("feedbacks");
+    function setupData(feedback) {
+        var feedbackData = feedback;
+        delete feedbackData.__meta__;
+        return feedbackData;
+    }
+    const venueId = request.query.venueId;
+    const id = request.query.id;
+    if (id) {
+        // single feedbacks
+        app.content.get('feedback', id)
+            .then(feedback => response.send(setupData(feedback)))
+            .catch(error => {               
+                console.error('Something went wrong while retrieving the feedback. Details:', error);
+                response.status(404);
+                response.send('venue with that id not found');
+            });
+    } else if (venueId) {
+        // single venue feedbacks
+        app.content
+            .get('feedback')
+            .then(feedbacks => { 
+                var processedFeedbacks;
+                for (var id in feedbacks) {
+                    if (feedbacks[id].venueId == venueId) {
+                        processedFeedbacks = setupData(feedbacks[id]);
+                        break;
+                    }
+                }
+                if (!processedFeedbacks) response.status(204);
+                response.send(processedFeedbacks);
+            })
+            .catch(error => {               
+                console.error('Something went wrong while retrieving the facility. Details:', error);
+                response.status(404);
+                response.send('venue facility with that id not found');
+            });
+    } else {
+        // all feedbacks
+        app.content.get('feedback')
+            .then(feedbacks => { 
+                var processedFeedbacks = [];
+                for (var id in feedbacks) {
+                    const feedbackData = setupData(feedbacks[id]);
+                    processedFeedbacks.push(feedbackData);
+                }
+                response.send(processedFeedbacks);
+            })
+            .catch(error => {               
+                console.error('Something went wrong while retrieving all the facilities. Details:', error);
+                response.status(400);
+                response.send('Something went wrong while retrieving all the facilities.');
+            });
+    }
 });
 
 export = router;
