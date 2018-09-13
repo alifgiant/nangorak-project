@@ -19,14 +19,41 @@ const router = express.Router();
  */
 
 /* GET /images. */
-router.get("/images", (request, response, next) => {
-    const fileName = request.body.fileName;
-    console.log(fileName);
-    if (fileName === "alif.png") {
-        response.send("images found");
+router.get("/images/:fileName", (request, response, next) => {
+    const fileName = request.params.fileName;
+    if (fileName) {        
+        app.storage.getFile(fileName)
+            .then(image => {                
+                delete image.__meta__;
+                delete image.file;
+                delete image.folderId;
+                delete image.type;
+                const promises = [image]; // propagate data to next promise
+                for (const aFileSize of image.sizes) {                    ;
+                    promises.push(app.storage.getURL(fileName, {
+                        size: { path: aFileSize.path }
+                    }));
+                }
+                if (promises) return Promise.all(promises);
+                else return Promise.reject("no size");
+            })
+            .then(imageAndUrl => {
+                const image = imageAndUrl[0];
+                const urls = imageAndUrl.slice(1);
+                for (let index = 0; index < image.sizes.length; index++) {
+                    const element = image[index];
+                    element.url = urls[index];
+                }
+                response.send(image);
+            })
+            .catch(error => {
+                console.error('Something went wrong while retrieving the image. Details:', error);
+                response.status(422);
+                response.send("image sizes not found");
+            });
     } else {
         response.status(404);
-        response.send("images not found");
+        response.send("image not found");
     }
 });
 
