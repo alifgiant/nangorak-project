@@ -44,7 +44,7 @@ router.get("/attractions", (request, response, next) => {
             .then(attractions => { 
                 let processedAttractions;
                 for (const id in attractions) {
-                    if (attractions[id].venueId === venueId) {
+                    if (attractions[id].venueId == venueId) {
                         processedAttractions = setupData(attractions[id]);
                         break;
                     }
@@ -90,7 +90,7 @@ router.get("/facilities", (request, response, next) => {
             .then(facilities => { 
                 let processedFacilities;
                 for (const id in facilities) {
-                    if (facilities[id].venueId === venueId) {
+                    if (facilities[id].venueId == venueId) {
                         processedFacilities = setupData(facilities[id]);
                         break;
                     }
