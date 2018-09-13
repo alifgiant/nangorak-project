@@ -177,15 +177,15 @@ router.get("/feedbacks", (request, response, next) => {
                 response.send('venue with that id not found');
             });
     } else if (venueId) {
-        // single venue feedbacks
+        // venue feedbacks
         app.content
             .get('feedback')
             .then(feedbacks => { 
-                let processedFeedbacks;
+                let processedFeedbacks = [];
                 for (const id in feedbacks) {
-                    if (feedbacks[id].venueId === venueId) {
-                        processedFeedbacks = setupData(feedbacks[id]);
-                        break;
+                    if (feedbacks[id].venueId == venueId) {
+                        const feedbackData = setupData(feedbacks[id]);
+                        processedFeedbacks.push(feedbackData);
                     }
                 }
                 if (!processedFeedbacks) response.status(204);
