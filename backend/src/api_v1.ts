@@ -79,7 +79,49 @@ router.get("/attractions", (request, response, next) => {
 
 /* GET /facilities */
 router.get("/facilities", (request, response, next) => {
-    response.send("facilities");
+    function setupData(attraction) {
+        var attractionData = attraction;
+        delete attractionData.__meta__;
+        return attractionData;
+    }
+    const venueId = request.query.venueId;    
+    if (venueId) {
+        // single venue facilities
+        app.content
+            .get('facilities')
+            .then(facilities => { 
+                var processedFacilities;
+                for (var id in facilities) {
+                    if (facilities[id].venueId == venueId) {
+                        processedFacilities = setupData(facilities[id]);
+                        break;
+                    }
+                }
+                if (!processedFacilities) response.status(204);
+                response.send(processedFacilities);
+            })
+            .catch(error => {               
+                console.error('Something went wrong while retrieving the facility. Details:', error);
+                response.status(404);
+                response.send('venue facility with that id not found');
+            });
+    } else {
+        // all facilities
+        app.content.get('facilities')
+            .then(facilities => { 
+                var processedFacilities = [];
+                for (var id in facilities) {
+                    const facilityData = setupData(facilities[id]);
+                    processedFacilities.push(facilityData);
+                }
+                response.send(processedFacilities);
+            })
+            .catch(error => {               
+                console.error('Something went wrong while retrieving all the facilities. Details:', error);
+                response.status(400);
+                response.send('Something went wrong while retrieving all the facilities.');
+            });
+    }
 });
 
 /* GET /venues */
