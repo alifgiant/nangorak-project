@@ -40,9 +40,8 @@ router.get("/images/:fileName", (request, response, next) => {
             .then(imageAndUrl => {
                 const image = imageAndUrl[0];
                 const urls = imageAndUrl.slice(1);
-                for (let index = 0; index < image.sizes.length; index++) {
-                    const element = image[index];
-                    element.url = urls[index];
+                for (let index = 0; index < image.sizes.length; index++) {                    
+                    image.sizes[index].url = urls[index];
                 }
                 response.send(image);
             })
@@ -52,8 +51,8 @@ router.get("/images/:fileName", (request, response, next) => {
                 response.send("image sizes not found");
             });
     } else {
-        response.status(404);
-        response.send("image not found");
+        response.status(400);
+        response.send("image file name not found");
     }
 });
 
