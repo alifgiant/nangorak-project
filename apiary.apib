@@ -6,19 +6,20 @@ HOST: https://us-central1-nangarok-camp-run1.cloudfunctions.net/api/v1/
 This document documented all API that will be used to build nangorak websites.
 
 ## Images [/images]
-### Get a sized image [GET /images]
-+ Request (application/json)
-    + Attributes
-        + fileName: `alif.png` (string , required)
+### Get a sized image [GET /images/{fileName}]
++ Parameters
+    + fileName: `1536251990297` (string, required) - icon nangorak
         
 + Response 200 (application/json)
     + Attributes
-        + fileName: `alif.png` (string)
-        + sized (array)
-            + full: `https://googleimage.com/alif.png` (string)
-            + 0: `https://googleimage.com/alif_0.png` (string)
-            + 1: `https://googleimage.com/alif_1.png` (string)
-            + 2: `https://googleimage.com/alif_2.png` (string)
+        + file: `alif.png` (string)
+        + contentType: `image/png` (string)
+        + id: `1536251990297` (number)
+        + sizes (array[Image])
+            + (Image)
+            + (Image)
+            + (Image)
+            + (Image)
 
 ## Attractions [/attractions]
 ### Get all attractions [GET]
@@ -106,6 +107,13 @@ This document documented all API that will be used to build nangorak websites.
 
 
 # Data Structures
+
+## Image (object)
+- height: `9999` (number)
+- path: `375_9999_100` (string)
+- quality: `1` (number)
+- width: `375` (number)
+- url: `https://storage.googleapis.com/nangarok-camp-run1.appspot.com/flamelink%2Fmedia%2Fsized%2F1080_9999_100%2F1536251990297_nangorakCampLogo.png` (string)
 
 ## Address (object)
 - street: `Jl. Gunung Puyuh – Nangorak Blok Nangorak, Desa Margamekar` (string, required)
