@@ -90,7 +90,7 @@ This document documented all API that will be used to build nangorak websites.
         + (Feedback)
         + (Feedback)
 
-### Get all feedbacks of venue [GET /feedbacks/{venueId}]
+### Get all feedbacks of venue [GET /feedbacks{?venueId}]
 + Parameters
     + venueId: `1536250994397` (string, required) - nangorak
 + Response 200 (application/json)
@@ -98,10 +98,9 @@ This document documented all API that will be used to build nangorak websites.
         + (Feedback)
         + (Feedback)
 
-### Get a feedbacks [GET /feedbacks/{venueId}/{id}/]
+### Get a feedbacks [GET /feedbacks{?id}/]
 + Parameters
-    + venueId: `1536250994397` (string, required) - nangorak
-    + id: `1` (number, required)
+    + id: `1536841607814` (number, required)
 + Response 200 (application/json)
     + Attributes (Feedback)
 
@@ -126,7 +125,6 @@ This document documented all API that will be used to build nangorak websites.
 - name: `Nangorak camping site` (string, required)
 - logo (array[string]) - only 1 image
     - asd.png
-    - asd.png
 - heroImages (array[string]) - up to 4 image
     - asd.png
     - asd.png
@@ -139,7 +137,10 @@ This document documented all API that will be used to build nangorak websites.
 - contact (Contact)
 
 ## Feedback (object)
-- photoUrl: `asd.png` (string)
+- id: `1536250994397` (string, required)
+- venueId: `1536250994397` (string, required)
+- photo (array[string]) - only 1 image
+    - asd.png
 - personName: `Alif Akbar` (string, required)
 - comment: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.` (string, required)
 - loveMeter: 5 (number, required)
