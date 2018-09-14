@@ -1,13 +1,93 @@
 @import url(vendors/bootstrap/bootstrap.min.css);
 body {
-  background-color: #ffffff; }
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  font-family: 'Montserrat', sans-serif; }
 
 .header {
-  width: 100%;
-  height: 800px;
-  background: url(../img/camp.jpeg);
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 18px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.22;
+  letter-spacing: normal;
+  text-align: left;
+  color: #303030;
+  font-family: 'Montserrat', sans-serif; }
+  .header .menu-list {
+    width: 100%;
+    position: fixed; }
+    .header .menu-list .menu-option {
+      margin-left: 200px; }
+  .header .active {
+    font-weight: bold;
+    border-bottom: 2px solid; }
+  .header .bg-light {
+    background-color: rgba(255, 255, 255, 0.1) !important; }
+  .header .bg-images img {
+    width: 100%; }
+  .header .logo-1 {
+    width: 289px;
+    height: 48px;
+    object-fit: contain; }
+
+.attraction {
+  width: 100%; }
+  .attraction h4 {
+    font-size: 28px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 3;
+    font-size: 28px;
+    letter-spacing: normal;
+    color: #3a3a3a;
+    text-align: center; }
+  .attraction p {
+    margin: auto;
+    width: 70%;
+    text-align: center;
+    font-size: 12pt;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    color: #3a3a3a; }
+  .attraction .att-holder {
+    margin: auto;
+    width: 100%;
+    padding: 20px; }
+    .attraction .att-holder .att-list {
+      margin: 10px;
+      display: flex;
+      height: 150px;
+      border-radius: 10px;
+      background-image: linear-gradient(242deg, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8)); }
+
+.facility {
+  height: 110px;
+  border: 1px solid;
+  position: relative;
+  left: 0;
+  overflow: hidden;
+  bottom: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-image: url("../img/fct.jpg");
+  background-position: left;
+  background-repeat: no-repeat;
   background-size: cover; }
+
+.maps {
+  width: 100%;
+  height: 500px;
+  border: 1px solid; }
 
 /*# sourceMappingURL=main.css.map */

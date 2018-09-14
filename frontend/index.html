@@ -7,36 +7,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
-    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
     <script src="js/jquery-1.11.0.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
 
 </head>
 <body>
-    <div class="header">
-        <header>
-            <div class="row">
-                <div class="col-6">
-                    aasasa
-                </div>
-                <div class="col-6">
-                    <ul class="nav">
+    <div id="wrapper">
+        <div class="header">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light menu-list">
+                <a class="navbar-brand" href="#"><img src="img/logo-1.png" srcset="img/logo-1@2x.png 2x, img/logo-1@3x.png 3x" class="logo-1"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                    <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Active</a>
+                            <a class="nav-item nav-link active" href="#">HOME <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-item nav-link" href="#">INFORMATION</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-item nav-link" href="#">GALLERY</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
+                            <a class="nav-item nav-link" href="#">BLOG</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-item nav-link" href="#">ABOUT US</a>
                         </li>
                     </ul>
                 </div>
+                
+            </nav>
+            <div class="bg-images">
+                <img src="img/camp.jpg">
             </div>
-        </header>
+        </div>
+        <div class="attraction">
+            <h4>EXPLORE THE ATTRACTIONS</h4>
+            <p>
+                Temukan keindahan alam yang tidak kamu temukan di belahan bumi manapun. Pemandangan yang seperti layaknya sepenggal surga di muka bumi.
+            </p>
+            <div class="container att-holder">
+                <div class="row">
+                    <div class="col-sm-12 col-md att-list"></div>
+                    <div class="col-sm-12 col-md att-list"></div>
+                    <div class="col-sm-12 col-md att-list"></div>
+                    <div class="col-sm-12 col-md att-list"></div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="facility">
+        </div>
+        <div class="maps"></div>
     </div>
 
     <!-- Bootstrap Core JavaScript -->
