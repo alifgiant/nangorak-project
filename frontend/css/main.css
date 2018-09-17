@@ -2,11 +2,10 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
   font-family: 'Montserrat', sans-serif; }
 
 .header {
-  height: 100%;
+  max-height: 800px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,25 +16,58 @@ body {
   letter-spacing: normal;
   text-align: left;
   color: #303030;
-  font-family: 'Montserrat', sans-serif; }
-  .header .menu-list {
-    width: 100%;
-    position: fixed; }
-    .header .menu-list .menu-option {
-      margin-left: 200px; }
-  .header .active {
-    font-weight: bold;
-    border-bottom: 2px solid; }
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+  position: relative; }
   .header .bg-light {
     background-color: rgba(255, 255, 255, 0.1) !important; }
+  .header .menu-alignment {
+    margin: auto;
+    width: 100%;
+    position: fixed; }
+    .header .menu-alignment nav {
+      margin: auto;
+      max-width: 1920px;
+      padding: 24px; }
+      .header .menu-alignment nav li {
+        padding: 8px; }
+    .header .menu-alignment .active {
+      font-weight: bold;
+      border-bottom: 2px solid; }
+    .header .menu-alignment .logo-1 {
+      width: 250px;
+      object-fit: contain;
+      visibility: hidden; }
+  .header .bg-images .big-text-container {
+    position: absolute;
+    top: 260px;
+    left: 80px; }
+    .header .bg-images .big-text-container h1 {
+      width: 658px;
+      font-size: 77px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.22;
+      letter-spacing: normal;
+      text-align: left;
+      color: #ffffff; }
+    .header .bg-images .big-text-container p {
+      width: 600px;
+      font-size: 16px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.19;
+      letter-spacing: normal;
+      text-align: left;
+      color: #ffffff;
+      margin-left: 5px; }
   .header .bg-images img {
     width: 100%; }
-  .header .logo-1 {
-    width: 289px;
-    height: 48px;
-    object-fit: contain; }
 
 .attraction {
+  margin-top: 0;
   width: 100%; }
   .attraction h4 {
     font-size: 28px;
@@ -75,7 +107,7 @@ body {
   border: 1px solid;
   position: relative;
   left: 0;
-  overflow: hidden;
+  overflow: auto;
   bottom: 0;
   background-size: cover;
   background-repeat: no-repeat;
