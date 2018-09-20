@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="js/swiper-4.4.1/dist/css/swiper.min.css">
 
     <script src="js/jquery-1.11.0.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -45,8 +46,20 @@
             </div>
             <div class="bg-images">
                 <div class="big-text-container">
-                    <h1>Lorem Ipsum</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                    <h1>Nangorak Camp</h1>
+                    <p>Temukan keindahan alam yang tidak kamu temukan 
+                            di belahan bumi manapun.</p>
+                </div>
+                <div class="action-button-container">
+                    <div class="see-more">
+                        See More
+                    </div>
+                    <div class="reserve-button">
+                       <div class="reserve-button-text">Reserve Your Trip Now!</div>
+                       <div class="reserve-button-arrow">
+                           <img src="img/chevron-with-circle-right.svg" alt="">
+                       </div>
+                    </div>
                 </div>
                 <img src="img/camp.jpg">
             </div>
@@ -58,20 +71,215 @@
             </p>
             <div class="container att-holder">
                 <div class="row">
-                    <div class="col-sm-12 col-md att-list"></div>
-                    <div class="col-sm-12 col-md att-list"></div>
-                    <div class="col-sm-12 col-md att-list"></div>
-                    <div class="col-sm-12 col-md att-list"></div>
+                    <div class="col-sm-12 col-md att-list">
+                        <div class="text">
+                            <img src="img/attraction/tent.svg" alt="">
+                            <p>
+                                Camping <br>
+                                Ground
+                            </p>
+                        </div>
+                        <img src="img/1.png" alt="">
+                    </div>
+                    <div class="col-sm-12 col-md att-list">
+                        <div class="text">
+                            <img src="img/attraction/guitar.svg" alt="">
+                            <p>
+                                Live <br>
+                                Music
+                            </p>
+                        </div>
+                        <img src="img/2.png" alt="">
+                    </div>
+                    <div class="col-sm-12 col-md att-list">
+                        <div class="text">
+                            <img src="img/attraction/helmet.svg" alt="">
+                            <p>
+                                Fun <br>
+                                Outbond
+                            </p>
+                        </div>
+                        <img src="img/3.png" alt="">
+                    </div>
+                    <div class="col-sm-12 col-md att-list">
+                        <div class="text">
+                            <img src="img/attraction/forest.svg" alt="">
+                            <p>
+                                Adventure <br>
+                                Playland
+                            </p>
+                        </div>
+                        <img src="img/4.png" alt="">
+                    </div>
                 </div>
                 
             </div>
         </div>
         <div class="facility">
+            <div class="row">
+                <div class="fc-title">
+                    <h4>FACILITIES</h4>
+                    <p>
+                        Dapatkan berbagai fasilitas yang menjadikan liburan lebih nyaman.
+                    </p>
+                </div>
+                <div class="line"></div>
+                <div class="facility-list">
+                    <div class="fac-list-detail">
+                        <img src="img/facilities/group-46.svg" class="fourg" alt="">
+                        <p>Jaringan 4G LTE <br>
+                            di Camp Ground</p>
+                    </div>
+                    <div class="fac-list-detail">
+                        <img src="img/facilities/group-55.svg" class="toilet" alt="">
+                        <p>Tersedia Toilet <br>
+                                di Seluruh Area</p>
+                    </div>
+                    <div class="fac-list-detail">
+                        <img src="img/facilities/group-57.svg" class="trans" alt="">
+                        <p>Transportasi <br>
+                                di Area Perkemahan</p>
+                    </div>
+                    <div class="fac-list-detail">
+                        <img src="img/facilities/group-63.svg" class="merchant" alt="">
+                        <p>Tersedia Toilet <br>
+                                di Seluruh Area</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="maps"></div>
+        <div class="maps">
+            <div id="map"></div>
+        </div>
+        <div class="testimonial">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="user-avatar">
+                            <img src="img/user/image-1@3x.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            <h4><strong>Fatih Seferagic</strong>, Jakarta</h4>
+                            <div class="rating">
+                                <img src="img/hearts.svg"  class="rating-heart" alt="">
+                                <img src="img/hearts.svg"  class="rating-heart" alt="">
+                                <img src="img/hearts.svg"  class="rating-heart" alt="">
+                                <img src="img/hearts.svg"  class="rating-heart" alt="">
+                            </div>
+                            "If a picture’s worth a thousand words, then video is priceless.”
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="user-avatar">
+                            <img src="img/user/image-1@3x.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            <h4><strong>Fatih Seferagic</strong>, Jakarta</h4>
+                            <div class="rating">
+                                <img src="img/hearts.svg"  class="rating-heart" alt="">
+                                <img src="img/hearts.svg"  class="rating-heart" alt="">
+                                <img src="img/hearts.svg"  class="rating-heart" alt="">
+                                <img src="img/hearts.svg"  class="rating-heart" alt="">
+                            </div>
+                            "If a picture’s worth a thousand words, then video is priceless.”
+                        </div>
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="row">
+                <div class="col-2">
+                    <div class="logofooter">
+                        <img src="img/footerlogo/footerlogo.png" alt="">
+                    </div>
+                </div>
+                <div class="col-4 camp-address">
+                    <div class="holder-info">
+                        <h4><strong>Nangorak Camp</strong></h4>
+                        <p>
+                            Jl. Gunung Puyuh – Nangorak
+                            Blok Nangorak, Desa Margamekar
+                            Kec. Sumedang Selatan, Kab. Sumedang
+                            Jawa Barat
+                            <br><br>
+                            E : nangorakcamp@gmail.com | P : +62 821 1915 8765
+                        </p>
+                        <p><strong>Follow Us On</strong></p>
+                        <div class="social">
+                            <img src="img/social/facebook.svg" alt="">
+                            <img src="img/social/ig.svg" alt="">
+                            <img src="img/social/twitter.svg" alt="">
+                            <img src="img/social/google.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 camp-address">
+                    <div class="holder-info">
+                        <h4><strong>Nangorak Camp</strong></h4>
+                        <a href="#">Home</a>
+                        <a href="#">Information</a>
+                        <a href="#">Gallery</a>
+                        <a href="#">Blog</a>
+                        <a href="#">About Us</a>    
+                    </div>
+                </div>
+                <div class="col-3 camp-address">
+                    <div class="holder-info">
+                        <h4><strong>Others</strong></h4>
+                        <a href="#">Reservasi Online</a>
+                        <a href="#">Contact Us</a>
+                        <a href="#">Newsletter</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Term & Condition</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="js/swiper-4.4.1/dist/js/swiper.min.js"></script>
+    <script>
+
+        var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 2,
+        spaceBetween: 30,
+        slidesPerGroup: 2,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        });
+
+        function initMap() {
+        var myLatLng = {lat: -6.9124068, lng: 107.9154954};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 17,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5z36GN0Co3G7cmvL0G7VGrSdRSh2co48&callback=initMap"
+    async defer></script>
 </body>
 </html>
