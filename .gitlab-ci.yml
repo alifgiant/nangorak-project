@@ -1,0 +1,15 @@
+image: zevdg/docker-firebase
+
+cache:
+  paths:
+    - backend/node_modules/
+    
+deploy_production:
+  stage: deploy
+  environment: Production
+  only:
+    - master
+  script:
+    - yarn --cwd backend install
+    - firebase use nangarok-camp-run1 --token $FIREBASE_TOKEN
+    - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token $FIREBASE_TOKEN
