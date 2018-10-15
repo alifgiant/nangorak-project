@@ -17,6 +17,7 @@
   "hosting": {
     "public": "frontend",
     "ignore": [
+      "**/*.cache",
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
