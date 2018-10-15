@@ -2,11 +2,10 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
   font-family: 'Montserrat', sans-serif; }
 
 .header {
-  height: 100%;
+  max-height: 850px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,25 +16,102 @@ body {
   letter-spacing: normal;
   text-align: left;
   color: #303030;
-  font-family: 'Montserrat', sans-serif; }
-  .header .menu-list {
-    width: 100%;
-    position: fixed; }
-    .header .menu-list .menu-option {
-      margin-left: 200px; }
-  .header .active {
-    font-weight: bold;
-    border-bottom: 2px solid; }
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+  position: relative; }
   .header .bg-light {
     background-color: rgba(255, 255, 255, 0.1) !important; }
+  .header .menu-alignment {
+    margin: auto;
+    width: 100%;
+    position: fixed; }
+    .header .menu-alignment nav {
+      margin: auto;
+      max-width: 1920px;
+      padding: 24px; }
+      .header .menu-alignment nav li {
+        padding: 8px; }
+    .header .menu-alignment .active {
+      font-weight: bold;
+      border-bottom: 2px solid; }
+    .header .menu-alignment .logo-1 {
+      width: 250px;
+      object-fit: contain; }
+  .header .bg-images .big-text-container {
+    width: 100%;
+    position: absolute;
+    bottom: 350px;
+    left: 80px; }
+    .header .bg-images .big-text-container h1 {
+      width: 658px;
+      font-size: 77px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.22;
+      letter-spacing: normal;
+      text-align: left;
+      color: #ffffff; }
+    .header .bg-images .big-text-container p {
+      width: 600px;
+      font-size: 16px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.19;
+      letter-spacing: normal;
+      text-align: left;
+      color: #ffffff;
+      margin-left: 5px; }
+  .header .bg-images .action-button-container {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    left: 80px;
+    bottom: 64px; }
+    .header .bg-images .action-button-container .see-more {
+      width: 150px;
+      border-top: 1px solid #FFFFFF;
+      padding-top: 16px;
+      font-size: 18px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.22;
+      letter-spacing: normal;
+      text-align: left;
+      color: #ffffff;
+      float: left; }
+    .header .bg-images .action-button-container .reserve-button {
+      cursor: pointer;
+      float: right;
+      width: 400px;
+      margin-right: 140px;
+      border-radius: 27px;
+      background-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15) 26%, rgba(255, 255, 255, 0.95)); }
+      .header .bg-images .action-button-container .reserve-button .reserve-button-text {
+        padding: 16px 0 16px 32px;
+        font-size: 18px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.22;
+        letter-spacing: normal;
+        text-align: left;
+        color: #202020;
+        float: left; }
+      .header .bg-images .action-button-container .reserve-button .reserve-button-arrow {
+        float: right;
+        padding: 10px; }
+        .header .bg-images .action-button-container .reserve-button .reserve-button-arrow img {
+          width: 32px;
+          height: 32px;
+          object-fit: contain; }
   .header .bg-images img {
     width: 100%; }
-  .header .logo-1 {
-    width: 289px;
-    height: 48px;
-    object-fit: contain; }
 
 .attraction {
+  margin-top: 0;
   width: 100%; }
   .attraction h4 {
     font-size: 28px;
@@ -66,28 +142,221 @@ body {
     .attraction .att-holder .att-list {
       margin: 10px;
       display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
       height: 150px;
       border-radius: 10px;
-      background-image: linear-gradient(242deg, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8)); }
+      position: relative;
+      background-image: linear-gradient(242deg, rgba(255, 255, 255, 0), black); }
+      .attraction .att-holder .att-list .text {
+        position: absolute;
+        top: 50%;
+        left: 25%;
+        transform: translate(-50%, -50%); }
+        .attraction .att-holder .att-list .text img {
+          width: 40px;
+          margin-left: 16%; }
+        .attraction .att-holder .att-list .text p {
+          margin-top: 16px;
+          font-size: 18px;
+          font-weight: bold;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.22;
+          letter-spacing: normal;
+          text-align: left;
+          color: #ffffff; }
+      .attraction .att-holder .att-list img {
+        flex-shrink: 0;
+        max-width: 120%;
+        max-height: 100%; }
+      @media screen and (max-width: 1200px) {
+        .attraction .att-holder .att-list img {
+          width: 180%;
+          height: 200%; } }
 
 .facility {
-  height: 110px;
+  height: 150px;
   border: 1px solid;
   position: relative;
   left: 0;
-  overflow: hidden;
+  overflow: auto;
   bottom: 0;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-image: url("../img/fct.jpg");
-  background-position: left;
-  background-repeat: no-repeat;
-  background-size: cover; }
+  background-position: left; }
+  .facility .fc-title {
+    text-align: center;
+    width: 450px;
+    padding: 6px;
+    margin-left: 18px;
+    margin-top: 5px; }
+    .facility .fc-title h4 {
+      font-size: 28px;
+      font-weight: 600;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 0;
+      letter-spacing: normal;
+      color: #ffffff;
+      margin-top: 40px; }
+    .facility .fc-title p {
+      padding: 8px;
+      font-size: 14px;
+      text-align: center;
+      color: #ffffff;
+      word-wrap: break-word; }
+  .facility .line {
+    height: 120px !important;
+    margin-top: 16px;
+    border-left: 1px solid #fff; }
+  .facility .facility-list {
+    height: 90%;
+    margin-top: 2px; }
+    .facility .facility-list .fac-list-detail {
+      margin: 43px;
+      float: left; }
+      .facility .facility-list .fac-list-detail .fourg {
+        width: 66px;
+        float: left; }
+      .facility .facility-list .fac-list-detail .toilet {
+        width: 58px;
+        float: left; }
+      .facility .facility-list .fac-list-detail .trans {
+        width: 65px;
+        float: left; }
+      .facility .facility-list .fac-list-detail .merchant {
+        width: 58px;
+        float: left; }
+      .facility .facility-list .fac-list-detail p {
+        float: left;
+        font-size: 14px;
+        color: #fff;
+        margin-top: 3px;
+        margin-left: 16px; }
 
 .maps {
   width: 100%;
-  height: 500px;
-  border: 1px solid; }
+  height: 500px; }
+  .maps div {
+    width: 100%;
+    height: 100%; }
+
+.testimonial {
+  width: 100%;
+  height: 250px; }
+  .testimonial .swiper-container {
+    max-width: 1400px;
+    height: 100%; }
+    .testimonial .swiper-container .swiper-wrapper .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center; }
+      .testimonial .swiper-container .swiper-wrapper .swiper-slide .user-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 90px;
+        float: left; }
+        .testimonial .swiper-container .swiper-wrapper .swiper-slide .user-avatar img {
+          width: 100px;
+          height: 100px;
+          -webkit-clip-path: circle(50% at 50% 50%);
+          clip-path: circle(50% at 50% 50%); }
+      .testimonial .swiper-container .swiper-wrapper .swiper-slide .description {
+        width: 300px;
+        height: auto;
+        font-size: 12px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.25;
+        letter-spacing: normal;
+        text-align: left;
+        color: #252536;
+        margin-left: 16px; }
+        .testimonial .swiper-container .swiper-wrapper .swiper-slide .description h4 {
+          font-size: 15px; }
+        .testimonial .swiper-container .swiper-wrapper .swiper-slide .description .rating {
+          width: 150px;
+          height: 20px;
+          margin-bottom: 5px;
+          display: flex;
+          flex-direction: row;
+          align-items: center; }
+          .testimonial .swiper-container .swiper-wrapper .swiper-slide .description .rating .rating-heart {
+            margin-right: 6px;
+            width: 16px; }
+
+.footer {
+  margin: auto;
+  width: 100%;
+  height: 350px;
+  background-color: #252536; }
+  .footer .logofooter {
+    height: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; }
+    .footer .logofooter img {
+      width: 100px; }
+  .footer .camp-address {
+    flex-direction: row;
+    align-items: center; }
+    .footer .camp-address .holder-info {
+      margin-top: 80px; }
+      .footer .camp-address .holder-info h4 {
+        font-size: 16px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.19;
+        letter-spacing: normal;
+        text-align: left;
+        color: #ffffff; }
+      .footer .camp-address .holder-info p {
+        font-size: 15px;
+        font-weight: 300;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.25;
+        letter-spacing: normal;
+        text-align: left;
+        color: #ffffff; }
+      .footer .camp-address .holder-info a {
+        font-size: 16px;
+        font-weight: 300;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.19;
+        letter-spacing: normal;
+        text-align: left;
+        color: #bebebe;
+        display: flex;
+        flex-direction: row;
+        margin-top: 16px; }
+      .footer .camp-address .holder-info .social {
+        display: flex;
+        flex-direction: row;
+        align-items: center; }
+        .footer .camp-address .holder-info .social img {
+          margin-right: 8px;
+          width: 40px; }
 
 /*# sourceMappingURL=main.css.map */
